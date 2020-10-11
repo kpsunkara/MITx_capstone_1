@@ -1,7 +1,7 @@
 \subsection{Useful to know}
 
 \subsubsection{Min of iid exponential r.v}
-Let  $X_1,…,X_nn$  be i.i.d. $Exp(\lambda)$ random variables.
+Let  $X_1$,...,$X_nn$  be i.i.d. $Exp(\lambda)$ random variables.
 
 Distribution of $min_i(Xi)$ 
 
@@ -18,7 +18,8 @@ Differentiate w.r.t $x$ to get the pdf of $min_i(Xi)$:
 f_{\text {min}}(x)= (n\lambda ) e^{-(n\lambda ) x}
 \end{align*}
 
-\subsubsection{Counting Commitees}
+
+\subsubsection{Counting Committees}
 
 Out of  $2n$  people, we want to choose a committee of $n$ people, one of whom will be its chair. In how many different ways can this be done?" 
 
@@ -32,7 +33,7 @@ $$\binom {2n}{n}=\sum _{i=0}^ n \binom {n}{i}\binom {n}{n-i}$$
 
 $$2^{2n}=\sum _{i=0}^{2n}\binom {2n}{i}$$
 
-“Out of  $n$  people, we want to form a committee consisting of a chair and other members. We allow the committee size to be any integer in the range  $1,2,…,n$ . How many choices do we have in selecting a committee-chair combination?"
+“Out of  $n$  people, we want to form a committee consisting of a chair and other members. We allow the committee size to be any integer in the range $1$,$2$,...,$n$ . How many choices do we have in selecting a committee-chair combination?"
 
 $$n2^{n-1}=\sum _{i=0}^ n \binom {n}{i}i.$$
 

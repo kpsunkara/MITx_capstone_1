@@ -126,11 +126,9 @@ Let $X_1, ..., X_n \stackrel{iid}{\sim} N(\mu,\sigma^2)$ and suppose we want to 
 Test statistic follows Student's T distribution:
 
 \begin{align*}
-T_n &= \frac{Z}{\tilde{S}} \\
-&= \frac{\bar{X}-\mu}{\frac{\hat{\sigma}}{\sqrt{n}}}\\
-&=\frac{\displaystyle \sqrt{n}\frac{\bar{X}_n - \mu_0}{\sigma}}{\displaystyle \sqrt{\frac{\tilde{S}_n}{\sigma^2}}}\\
-&\sim \frac{N(0,1)}{\sqrt{\frac{\chi^2_{n-1}}{n-1}}}\\
-&\sim t_{n-1}
+T_n &= \frac{Z}{\tilde{S}} &= \frac{\bar{X}-\mu}{\frac{\hat{\sigma}}{\sqrt{n}}} &=\frac{\displaystyle \sqrt{n}\frac{\bar{X}_n - \mu_0}{\sigma}}{\displaystyle \sqrt{\frac{\tilde{S}_n}{\sigma^2}}}\\
+&\sim \frac{N(0,1)}{\sqrt{\frac{\chi^2_{n-1}}{n-1}}}
+&= t_{n-1}
 \end{align*}
 
 Works bc. under $H_0$ the numerator $N(0,1)$ and the denominator $\frac{\tilde{S}_n}{\sigma^2} \sim \frac1{n-1}\chi^2_{n-1}$ are independent by Cochran's Theorem.\\
