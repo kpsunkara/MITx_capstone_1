@@ -1,0 +1,394 @@
+
+
+\section{Important probability distributions}
+
+\subsection*{Table}
+
+\begin{figure*}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{ l  l  l  l l  l  l l  l l}
+
+ Dist & Param & PDF & CDF & Mean & var & F($\theta$) & MLE & Likeleyhood $= \displaystyle  L_ n(X_1, \ldots , X_ n, \theta )$  & Log likelyhood \\ 
+\hline 
+ 
+ %BERN
+ Ber(p) coin flip 
+ &
+ $p \in[0,1]$ 
+ &
+ $ p_x(k)=	\begin{cases} p,&\text{if k = 1}\\(1-p),&\text{if k = 0} \end{cases}$ 
+ &
+ None 
+ &
+ p 
+ &
+ p(1-p) 
+ &
+ $I(p) = \frac{1}{p(1-p)}$ 
+ &
+ $\hat{p}_{MLE} = \frac{\sum^n_{i=1}(X_i)}{n}$ 
+ &
+ $ p^{\sum _{i = 1}^ n X_ i} (1 -p)^{{\color{blue}{n - }} \sum _{i = 1}^ n X_ i}$  
+ &
+ $\ell_n (p)  = \ln  \left( p \right) \sum _{i=1}^{n}X_{{i}}+ \left( n-\sum _{i=1}^{n}X_{{i}} \right) \ln  \left( 1-p \right)$
+ \\\hline 
+   
+ 
+ %BINOM
+ Binom(p) (n coin flips)
+ &
+ $p \in[0,1]$ 
+ &
+ $p_x(k) = {\binom{n}{k}} {p}^{k} (1-p )^{n-k}$, $k=0...n$ 
+ &
+ None 
+ &
+ $n*p$ 
+ &
+ $n p(1-p)$ 
+ &
+ $I(p) = \frac{n}{p(1-p)}$
+ &
+ MLE 
+ & 
+ $\displaystyle   \left( \prod _{i = 1}^ n \binom {K}{X_ i} \right) \theta ^{\sum _{i = 1}^ n X_ i} (1 - \theta )^{nK - \sum _{i = 1}^ n X_ i }$ 
+ &
+ $\ell_n (\theta) = C + \left( \sum _{i = 1}^ n X_ i \right) \log \theta + \left( nK - \sum _{i = 1}^ n X_ i \right) \log (1 - \theta )$  
+ \\\hline 
+ 
+
+ 
+ $Geometric(p) \\ T trials for 1st success. $
+ &
+ $p \in[0,1]$ 
+ &
+ $p_T(t) = (1-p)^{t-1}, t=1,2..$
+ &
+ None
+ &
+ $\frac{1}{p}$
+ &
+ $\frac{1-p}{p^2}$
+ &
+ Fisher
+ &
+ MLE
+ &
+ LIKEHOD
+ &
+ LOG LIKEH
+ 
+ \\\hline 
+ 
+ 
+ $ Multinomial(p_0...p_r,n) $
+ &
+ $n>0$ and $p_1, \ldots, p_r$
+ &
+ $p_x(x_1...x_n)=\frac{n!}{x_1!,\ldots,x_n!} p_1, \ldots, p_r$
+ &
+ None
+ &
+ $n p_i$
+ &
+$n * p_i(1-p_i)$
+ &
+ Fisher
+ &
+ MLE
+ &
+ \thead{$p_x(x)= \prod _{j=1}^{n}{p_{{j}}}^{T_{{j}}}$, where $T^j=\mathbbm{1}( X_i=j)$  \\ is the count how often an outcome is seen in trials.}
+ &
+ $\ell_n= \sum _{j=2}^{n}T_{{j}}\ln  \left( p_{{j}} \right)$
+ 
+ \\\hline 
+ 
+
+
+ Poisson($\lambda$)  Discrete 
+ &
+ $\lambda > 0$ 
+ &
+ $\mathbf{p_x}(k)=exp(-\lambda)\frac{\lambda^k}{k!}$ for $k=0,1, \ldots,$
+ &
+ CDF
+ &
+ $\lambda$
+ &
+ $\lambda$
+ &
+ $I(\lambda)= \frac{1}{\lambda}$
+ &
+ $\hat{\lambda}_{MLE} = \frac{1}{n} \sum^n_{i=1}(X_i)$
+ &
+ $ \prod _{i = 1}^ n \frac{\lambda^{\sum_{i=1}^{n} x_i}}{\prod _{i = 1}^ n x_i!} e^{-n\lambda}$
+ & 
+ $\ell_n (\lambda)=  -n\lambda + log(\lambda)(\sum_{i=1}^n x_i)) - log(\prod _{i = 1}^ n x_i!)$
+ 
+ \\\hline 
+ 
+ Exp(\lambda)  Dist 
+ &
+ $\lambda$ >0
+ &
+ $ f_x(x)=
+	\begin{cases}
+		 \lambda exp(-\lambda x),&\text{if x >= 0}\\
+		0,&\text{o.w.}\\
+	\end{cases}
+ $
+ &
+ $ \begin{cases}
+		1-exp(-\lambda x),{if x >= 0}\\
+		0,\quad{o.w.}\\
+		P(X>a)= exp(-\lambda a)
+	\end{cases}
+ $
+ &
+ $\frac{1}{\lambda}$
+ &
+ $\frac{1}{\lambda^2}$
+ &
+ $I(\lambda)= \frac{1}{\lambda^2}$
+ &
+ $\hat{\lambda}_{MLE}= \frac{n}{\sum^{n}_{i=1}(X_i)}$
+ &
+ $\lambda^n\exp\left(-\lambda\sum_{i=1}^n X_i\right)$
+ &
+ $\ell_n (\lambda)= n ln(\lambda) - \lambda \sum_{i=1}^n (X_i)$
+ \\\hline 
+ 
+ 
+ Shifted Exp (b,a) Dist 
+ &
+ Parameters $\lambda, a \in \mathbb{R}$
+ &
+ $ f_x(x)=
+	\begin{cases}
+		 \lambda exp(-\lambda(x - a )),&{x >= a}\\
+		0,&{x <= a}\\
+	\end{cases}
+$
+
+ &
+ $ 	\begin{cases}
+		 1-exp(-\lambda(x-a)),\quad{if x >= a}\\
+		0,\quad{x <= a}\\
+	\end{cases}
+$
+ &
+ $a + \frac{1}{\lambda}$
+ &
+ $\frac{1}{\lambda^2}$
+ &
+ F($\theta$)
+ &
+ $ \begin{cases} 
+ {\lambda } = \frac{1}{\overline{X}_ n - \hat{a}}\\
+ {a} = \min(X_ i)
+ \end{cases}
+ $
+ &
+ $ \lambda ^ n \exp \left( -\lambda \sum _{i = 1}^ n (X_ i - a) \right) \mathbf{1}_{\min _{i = 1, \ldots , n}(X_ i) \geq a}.$
+ &
+ $\ell (\lambda , a) := n \ln \lambda - \lambda \sum _{i = 1}^ n X_ i + n \lambda a$ 
+ \\\hline 
+ 
+ 
+ 
+  Uniform(a,b) 
+ &
+ $a$ and $b$
+ &
+ $ \mathbf{f_x}(x)=
+	\begin{cases}
+		 \frac{1}{b-a},&\text{if a < x <b}\\
+		0,&\text{o.w.}\\
+	\end{cases}
+$
+ &
+ $ \mathbf{F_x}(x)=
+	\begin{cases}
+		 0,&for x \leq a\\
+		 \frac{x-a}{b-a},& x \in [a,b)\\
+		1,&x \geq b\\
+	\end{cases}
+$
+ &
+ $\frac{a+b}{2}$
+ &
+ $\frac{(b-a)^2}{12}$
+ &
+ F($\theta$)
+ &
+ MLE
+ &
+ $\frac{\max_i (x_i \leq b)} {b^n}$
+ &
+ $ln(\frac{\max_i (x_i \leq b)} {b^n})$
+ \\\hline 
+ 
+ 
+
+ 
+ Normal(\mu, \sigma)  Dist  
+ &
+ $\mu$ and $\sigma^2 >0$
+ &
+ $f(x)= \frac{1}{\sqrt(2 \pi \sigma^2)} exp(-\frac{(x-\mu)^2}{2\sigma^2})$ 
+ &
+ $\Phi (z) = \int _{-\infty }^ z \frac{1}{\sqrt{2 \pi }} e^{-x^2/2} \,  dx$
+ &
+ $\mu$ 
+ &
+ $\sigma^2$
+ &
+ $I(\mu , \sigma ^2) = \begin{pmatrix}  \frac{1}{\sigma ^2} &  0 \\ 0 &  \frac{1}{2 \sigma ^4} \end{pmatrix}$ 
+ &
+ $\hat\mu = \bar X_ n, \quad \widehat{\sigma ^2} = \frac{1}{n} \sum _{i=1}^{n} (X_ i - \bar X_ n)^2$
+ &
+ $ \dfrac{1}{\left(\sigma\sqrt{2\pi}\right)^n}\exp{\left(-\dfrac{1}{2\sigma^2}\sum_{i=1}^n (X_i-\mu)^2 \right)}$
+  & 
+  $\ell_n (\mu,\sigma^2)= -n log(\sigma\sqrt{2\pi})-\frac{1}{2\sigma^2}\sum_{i=1}^n (X_i-\mu)^2 $
+  \\\hline 
+  
+  
+ Hypergeom  Dist 
+ & Param & PDF & CDF & Mean & var & F($\theta$) & MLE & Likeleyhood & Log likelyhood  \\\hline 
+ 
+ 
+ Negative Binom  Dist  & Param & PDF & CDF & Mean & var & F($\theta$) & MLE & Likeleyhood & Log likelyhood  \\\hline 
+ 
+ Beta  Dist  & Param & PDF & CDF & Mean & var & F($\theta$) & MLE & Likeleyhood & Log likelyhood  \\\hline 
+ 
+ 
+\end{tabular}
+} %resize End 
+
+\end{figure*}
+
+
+\subsection*{Univariate Gaussians}
+
+Canonical exponential form:\\
+
+Gaussians are invariant under affine transformation:\\
+
+$aX+b \sim N(X+b,a^2\sigma^2)$\\
+
+Sum of independent gaussians:\\
+
+Let $X {\sim} N(\mu_X,\sigma_X^2)$ and $Y {\sim} N(\mu_Y,\sigma_Y^2)$\\
+
+If $Y = X + Z$, then $Y \sim N(\mu_X + \mu_Y, \sigma_X + \sigma_Y)$\\
+
+If $U = X - Y$, then $U \sim N(\mu_X - \mu_Y,\sigma_X + \sigma_Y)$\\
+
+Symmetry:\\
+
+If $X \sim\ N(0,\sigma^2),$ then $-X \sim N(0,\sigma^2)$\\
+
+$\mathbb{P}(|X|>x) = 2\mathbb{P}(X>x)$\\
+
+Standardization:\\
+
+$Z= \frac{X-\mu}{\sigma} \sim N(0,1)$\\
+
+$\mathbf{P}\left(X\leq t\right) = \displaystyle \mathbf{P}\left(Z\leq \frac{t-\mu}{\sigma}\right)$
+
+Higher moments:\\
+
+$\mathbb{E}[X^2] = \mu^2 + \sigma^2$\\
+$\mathbb{E}[X^3] = \mu^3 + 3\mu\sigma^2$\\
+$\mathbb{E}[X^4] = \mu^4 + 6\mu^2\sigma^2 +3\sigma^4$\\
+
+Quantiles:\\
+
+\subsection*{Uniform}
+
+
+\subsection*{Cauchy}
+continuous, parameter $m$,
+
+$f_ m(x) = \frac{1}{\pi } \frac{1}{1 + (x - m)^2}$\\
+
+$\mathbb{E}[X]=not defined!$\\
+$Var(X)=not defined!$\\
+
+$\text {med}(X) = P(X > M) = P(X < M)\\ = 1/2 = \displaystyle \int _{1/2}^{\infty } \frac{1}{\pi } \cdot \frac{1}{1 + (x-m)^2} \,  dx$
+
+\subsection*{Chi squared}
+The $\chi _ d^2$ distribution with $d$ degrees of freedom is given by the distribution of $Z_1^2 + Z_2^2 + \cdots + Z_ d^2,$ where $Z_1, \ldots , Z_ d \stackrel{iid}{\sim } \mathcal{N}(0,1)$
+
+If $V \sim \chi^2_k:$\\
+
+$\mathbb{E}= \mathbb{E}[Z_1^2] + \mathbb{E}[Z_2^2] + \ldots + \mathbb{E}[Z_d^2] = d$\\ 
+
+$Var(V) = Var(Z_1^2) + Var(Z_2^2) + \ldots + Var(Z_d^2) = 2d$
+
+\subsection*{Student's T Distribution}
+
+$T_ n := \frac{Z}{\sqrt{V/n}}$ where $Z \sim \mathcal{N}(0,1)$, and $Z$ and $V$ are independent
+
+
+
+
+
+\subsection*{Poisson}
+Parameter $\lambda$. discrete, approximates the binomial PMF when $n$ is large, $p$ is small, and $\lambda = np$.\\
+
+
+Canonical exponential form:\\
+
+$ f_{\theta}(y) = \exp\big(y\theta - \underbrace{e^\theta}_{b(\theta)} \underbrace{- \ln y!}_{c(y, \phi)}\big)$\\
+$\theta = \ln \lambda$\\
+$\phi = 1$\\
+
+
+Poisson process:\\
+k arrivals in t slots
+$\mathbf{p_x}(k,t) = \mathbb{P}(N_t=k)=e^{-\lambda t} \frac{(\lambda t)^k}{k!}$\\
+
+$\mathbb{E}[N_t]=\lambda t$\\
+
+$Var(N_t)=\lambda t$
+
+\subsection*{Exponential}
+$\mathbb{E}[X^2]=\frac{2}{\lambda^2}$
+Canonical exponential form:\\
+$f_{\theta}(y) = \exp\big(y\theta - \underbrace{(-\ln(-\theta))}_{b(\theta)} + \underbrace{0}_{c(y, \phi)}\big)$\\
+$\theta = -\lambda = -\frac1{\mu}$\\
+$\phi = 1$
+
+
+
+\subsection{Bern}
+Canonical exponential form:\\
+$f_{\theta}(y)=\exp\big(y\theta - \underbrace{\ln(1 + e^\theta)}_{b(\theta)} + \underbrace{0}_{c(y, \phi)}\big) \quad$\\
+$\theta = \ln\left(\frac{p}{1-p}\right)$\\
+$\phi = 1$\\
+
+\subsection*{Binomial}
+Canonical exponential form:\\
+$f_ p(y) =\\  
+exp (y \underbrace{(\ln (p)-\ln (1-p))}_{\theta } + \underbrace{n\ln (1-p)}_{-b(\theta )} +\underbrace{\ln(\binom {n}{y})}_{c(y,\phi )} )$
+
+
+
+\subsection*{Pascal}
+
+The negative binomial or Pascal distribution is a generalization of the geometric distribution. It relates to the random experiment of repeated independent trials until observing $m$ successes. I.e. the time of the kth arrival.
+
+$Y_k=T_1+...T_k$\\
+
+$T_i \sim iid Geometric(p)$\\
+
+$\mathbb{E}[Y_k]=\frac{k}{p}$\\
+
+$Var(Y_k)= \frac{k(1-p}{p^2}$
+
+$p_{Y_k}(t) ={\binom{t-1}{ k-1}}p^k(1-p)^{t-k}$, $t=k,k+1,...$
+
+
+\subsection*{Shifted Exponential}
+

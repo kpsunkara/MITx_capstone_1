@@ -33,15 +33,13 @@ S_n &= \frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X}_n)^2\\
 \end{align*}
 \textbf{Unbiased estimator of sample variance:}
 \begin{align*}
-\tilde{S}_n &= \displaystyle  \frac{1}{n-1} \sum _{i=1}^ n \left(X_ i - \overline{X}_ n\right)^2\\
-&= \frac{n}{n-1} S_n
+\tilde{S}_n &= \displaystyle  \frac{1}{n-1} \sum _{i=1}^ n \left(X_ i - \overline{X}_ n\right)^2 = \frac{n}{n-1} S_n
 \end{align*}
 \subsection{Delta Method}
 
 To find the asymptotic CI if the estimator is a function of the mean. Goal is to find an expression that converges a function of the mean using the CLT. Let $Z_n$ be a sequence of r.v. $\sqrt(n) (Z_n-\theta) \xrightarrow[n \rightarrow \infty]{(d)} N(0,\sigma^2)$ and let $g: R\longrightarrow R$ be continuously differentiable at $\theta$, then:
 \begin{align*}
-&\sqrt{n}(g(Z_n) - g(\theta)) \xrightarrow [n \to \infty ]{(d)}\\
-&\mathcal{N}(0, g'(\theta )^2 \sigma ^2)
+&\sqrt{n}(g(Z_n) - g(\theta))   \xrightarrow [n \to \infty ]{(d)} &\mathcal{N}(0, g'(\theta )^2 \sigma ^2)
 \end{align*}
 \textbf{Example:} let  $X_1,... ,X_n ~ exp(\lambda)$  where  $\lambda>0$ . Let  $\overline{X}_ n= \frac{1}{n} \sum _{i = 1}^ n X_ i$ denote the sample mean. By the CLT, we know that $\sqrt{n}\left(\overline{X}_ n - \frac{1}{\lambda }\right) \xrightarrow [n \to \infty ]{(d)} N(0, \sigma ^2)$ for some value of  $\sigma^2$  that depends on  $\lambda$.
 
