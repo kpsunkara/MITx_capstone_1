@@ -6,4 +6,4 @@ Please note that since I am working alone on this there has been no cross-check 
  
 The document structure is based on https://github.com/tim-st/latex-cheatsheet
  
- 
+Generate PDF online at: https://latexonline.cc/ 
